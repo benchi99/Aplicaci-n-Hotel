@@ -1,0 +1,106 @@
+﻿<Page
+    x:Class="Hotel.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hotel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <SolidColorBrush x:Key="NavButtonPressedBackgroundBrush" Color="White" Opacity="0.3" />
+        <SolidColorBrush x:Key="NavButtonCheckedBackgroundBrush" Color="White" Opacity="0.2" />
+        <SolidColorBrush x:Key="NavButtonHoverBackgroundBrush" Color="White" Opacity="0.1" />
+
+        <Style x:Key="HamburguerRadioButtonStyle" TargetType="RadioButton">
+            <Setter Property="Background" Value="Transparent"/>
+            <Setter Property="Padding" Value="3"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Left"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="RadioButton">
+                        <Border BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal"/>
+                                    <VisualState x:Name="PointerOver">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NavButtonHoverBackgroundBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Pressed">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NavButtonPressedBackgroundBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="CheckStates">
+                                    <VisualState x:Name="Checked">
+                                        <Storyboard>
+                                            <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Background" Storyboard.TargetName="BackgroundGrid">
+                                                <DiscreteObjectKeyFrame KeyTime="0" Value="{StaticResource NavButtonCheckedBackgroundBrush}"/>
+                                            </ObjectAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="Unchecked"/>
+                                    <VisualState x:Name="Indeterminate"/>
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="FocusStates">
+                                    <VisualState x:Name="Focused"/>
+                                    <VisualState x:Name="Unfocused"/>
+                                    <VisualState x:Name="PointerFocused"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <Grid Name="BackgroundGrid" Background="Transparent" Margin="0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="48"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock FontSize="16" Height="16" Text="{TemplateBinding Tag}" FontFamily="Segoe MDL2 Assets" Margin="0,16" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                                <ContentPresenter x:Name="ContentPresenter"
+                                                 FontSize="16"
+                                                 AutomationProperties.AccessibilityView="Raw"
+                                                 ContentTemplate="{TemplateBinding ContentTemplate}"
+                                                 ContentTransitions="{TemplateBinding ContentTransitions}"
+                                                 Content="{TemplateBinding Content}" Grid.Column="1"
+                                                 HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                                 Margin="{TemplateBinding Padding}"
+                                                 TextWrapping="Wrap"
+                                                 VerticalAlignment="{TemplateBinding VerticalContentAlignment}"
+                                                 Foreground="White" />
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <SplitView x:Name="SplitView" DisplayMode="CompactOverlay">
+            <SplitView.Pane>
+                <StackPanel Background="Gray">
+                    <Button x:Name="botonHamburguesa" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="Hamburguesa_Click"/>
+                    <RadioButton Style="{StaticResource HamburguerRadioButtonStyle}" Content="Nuevo cliente" GroupName="Options" Tag="&#xE8FA;"/>
+                    <RadioButton Style="{StaticResource HamburguerRadioButtonStyle}" Content="Reservar habitación" GroupName="Options" Tag="&#xEA8A;"/>
+                    <RadioButton Style="{StaticResource HamburguerRadioButtonStyle}" Content="Reservar salón" GroupName="Options" Tag="&#xE8D1;"/>
+                </StackPanel>
+
+            </SplitView.Pane>
+
+            <SplitView.Content>
+                <Grid>
+                    <TextBlock Text="CONTENIDO" FontSize="54px" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </SplitView.Content>
+        </SplitView>
+    </Grid>
+</Page>
