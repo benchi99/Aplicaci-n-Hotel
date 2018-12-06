@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="Hotel.bookRoom"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hotel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Text="Reservar Habitación" FontSize="48" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15" x:Name="tituloHab"/>
+        <TextBlock Text="Introduzca aquí los datos de su reserva." FontSize="24" RelativePanel.Below="tituloHab" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15" x:Name="subtituloHab"/>
+
+        <StackPanel RelativePanel.Below="subtituloHab" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Seleccione cliente:" Margin="15"/>
+                <ComboBox x:Name="clientes" Margin="15" Width="164"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Text="Fecha de llegada"/>
+                    <TextBlock Text="Fecha de Salida"/>
+                </StackPanel>
+                <StackPanel>
+                    <DatePicker x:Name="fechaLlegada"/>
+                    <DatePicker x:Name="fechaSalida"/>
+                </StackPanel>
+                <StackPanel>    
+                    <TextBlock Text="Número de personas"/>
+                    <TextBlock Text="Tipo de habitación"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox x:Name="numPersonas"/>
+                    <ComboBox x:Name="tipoHabitacion" ItemsSource="{x:Bind tipoHabitacion}" Width="164"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+    </RelativePanel>
+</Page>

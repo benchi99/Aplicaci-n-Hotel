@@ -26,5 +26,25 @@ namespace Hotel
         {
             this.InitializeComponent();
         }
+
+        private void nuevoCliente_Click(object sender, RoutedEventArgs e)
+        {
+            marco.Navigate(typeof(newCustomer));
+        }
+
+        private void reservaHabitacion_Click(object sender, RoutedEventArgs e)
+        {
+            marco.Navigate(typeof(bookRoom));
+        }
+
+        private void reservaSalon_Click(object sender, RoutedEventArgs e)
+        {
+            marco.Navigate(typeof(bookSaloon));
+        }
+
+        private void botonHamburguesa_Click(object sender, RoutedEventArgs e)
+        {
+            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+        }
     }
 }
