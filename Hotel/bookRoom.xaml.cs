@@ -22,21 +22,29 @@ namespace Hotel
     /// </summary>
     public sealed partial class bookRoom : Page
     {
-        List<string> tipoHabitacion = new List<string>();
+        List<string> habitaciones = new List<string>();
         List<string> regimenes = new List<string>();
+        List<string> listaClientes = new List<string>();
 
         public bookRoom()
         {
             this.InitializeComponent();
 
-            tipoHabitacion.Add("Doble de uso individual");
-            tipoHabitacion.Add("Doble");
-            tipoHabitacion.Add("Junior suite");
-            tipoHabitacion.Add("Suite");
+            habitaciones.Add("Doble de uso individual");
+            habitaciones.Add("Doble");
+            habitaciones.Add("Junior suite");
+            habitaciones.Add("Suite");
 
             regimenes.Add("Alojamiento y desayuno");
             regimenes.Add("Media pensión");
             regimenes.Add("Pensión completa");
+
+            listaClientes.Add("Añadir un nuevo cliente...");
+        }
+
+        private void clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

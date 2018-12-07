@@ -15,26 +15,30 @@
         <StackPanel RelativePanel.Below="subtituloHab" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Seleccione cliente:" Margin="15"/>
-                <ComboBox x:Name="clientes" Margin="15" Width="164"/>
+                <ComboBox x:Name="clientes" Margin="15" HorizontalAlignment="Stretch" Width="687" ItemsSource="{x:Bind listaClientes}" SelectionChanged="clientes_SelectionChanged"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
                 <StackPanel>
-                    <TextBlock Text="Fecha de llegada"/>
-                    <TextBlock Text="Fecha de Salida"/>
+                    <TextBlock Text="Fecha de llegada" Margin="15"/>
+                    <TextBlock Text="Fecha de Salida" Margin="15"/>
                 </StackPanel>
                 <StackPanel>
-                    <DatePicker x:Name="fechaLlegada"/>
-                    <DatePicker x:Name="fechaSalida"/>
-                </StackPanel>
-                <StackPanel>    
-                    <TextBlock Text="Número de personas"/>
-                    <TextBlock Text="Tipo de habitación"/>
+                    <DatePicker x:Name="fechaLlegada" Margin="10" IsEnabled="False"/>
+                    <DatePicker x:Name="fechaSalida" Margin="10" IsEnabled="False"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBox x:Name="numPersonas"/>
-                    <ComboBox x:Name="tipoHabitacion" ItemsSource="{x:Bind tipoHabitacion}" Width="164"/>
+                    <TextBlock Text="Número de personas" Margin="15"/>
+                    <TextBlock Text="Tipo de habitación" Margin="15"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox x:Name="numPersonas" Margin="10" IsEnabled="False"/>
+                    <ComboBox x:Name="tipoHabitacion" Margin="10" ItemsSource="{x:Bind habitaciones}" Width="216" IsEnabled="False"/>
                 </StackPanel>
             </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <Button Content="Realizar reserva" Margin="15" Width="128" IsEnabled="False"/>
+            <Button Content="Cancelar" Margin="15" Width="128"/>
         </StackPanel>
     </RelativePanel>
 </Page>

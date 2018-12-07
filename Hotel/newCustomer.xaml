@@ -39,7 +39,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
-            <Button Content="Añadir" x:Name="btAnadir" Margin="10" Width="96"/>
+            <Button Content="Añadir" x:Name="btAnadir" Margin="10" Width="96" Click="btAnadir_Click"/>
             <Button Content="Cancelar" x:Name="btCancelar" Margin="10" Width="96"/>
         </StackPanel>
     </RelativePanel>

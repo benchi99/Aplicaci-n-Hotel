@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Modelos;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,6 +24,7 @@ namespace Hotel
     public sealed partial class newCustomer : Page
     {
         List<string> provincias = new List<string>();
+        List<Persona> listaPersonas = new List<Persona>();
 
         public newCustomer()
         {
@@ -39,9 +41,12 @@ namespace Hotel
             
         }
 
+        private void btAnadir_Click(object sender, RoutedEventArgs e)
+        {
+            string provinciaEscogida = ((ComboBoxItem)provinciaCBX.SelectedItem).Content.ToString();
 
-
-
-
+            listaPersonas.Add(new Persona(dniTbx.Text, nombreTbx.Text, tlfTbx.Text, direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+            
+        }
     }
 }
