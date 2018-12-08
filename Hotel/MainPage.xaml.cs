@@ -30,16 +30,19 @@ namespace Hotel
         private void nuevoCliente_Click(object sender, RoutedEventArgs e)
         {
             marco.Navigate(typeof(newCustomer));
+            SplitView.IsPaneOpen = false;
         }
 
         private void reservaHabitacion_Click(object sender, RoutedEventArgs e)
         {
             marco.Navigate(typeof(bookRoom));
+            SplitView.IsPaneOpen = false;
         }
 
         private void reservaSalon_Click(object sender, RoutedEventArgs e)
         {
             marco.Navigate(typeof(bookSaloon));
+            SplitView.IsPaneOpen = false;
         }
 
         private void botonHamburguesa_Click(object sender, RoutedEventArgs e)

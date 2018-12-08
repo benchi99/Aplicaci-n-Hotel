@@ -45,7 +45,7 @@ namespace Hotel
         {
             string provinciaEscogida = ((ComboBoxItem)provinciaCBX.SelectedItem).Content.ToString();
 
-            listaPersonas.Add(new Persona(dniTbx.Text, nombreTbx.Text, tlfTbx.Text, direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+            listaPersonas.Add(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
             
         }
     }

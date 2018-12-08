@@ -44,7 +44,18 @@ namespace Hotel
 
         private void clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            string seleccion = clientes.SelectedItem.ToString();
 
+            if (seleccion == "Añadir un nuevo cliente...")
+            {
+                Frame.Navigate(typeof(newCustomer));
+            } else
+            {
+                fechaLlegada.IsEnabled = true;
+                fechaSalida.IsEnabled = true;
+                numPersonas.IsEnabled = true;
+                tipoHabitacion.IsEnabled = true;
+            }
         }
     }
 }

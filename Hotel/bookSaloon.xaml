@@ -8,7 +8,61 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-        <TextBlock Text="salon"/>
-    </Grid>
+    <RelativePanel>
+        <TextBlock Text="Reservar salón" FontSize="48" Margin="15" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="titulo"/>
+        <TextBlock Text="Introduzca los datos de su reserva de salón" FontSize="24" Margin="5" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="titulo" x:Name="subtitulo"/>
+
+        <StackPanel RelativePanel.Below="subtitulo" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Seleccione cliente:" Margin="20"/>
+                <ComboBox x:Name="clientes" Margin="15" HorizontalAlignment="Stretch" Width="898" SelectionChanged="clientes_SelectionChanged"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <StackPanel>
+                    <TextBlock Text="Fecha del evento" Margin="20"/>
+                    <TextBlock Text="Tipo de evento" Margin="20"/>
+                </StackPanel>
+                <StackPanel>
+                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Margin="16" x:Name="eventoFecha" IsEnabled="False"/>
+                    <StackPanel Orientation="Horizontal" Margin="13">
+                        <RadioButton Content="Banquete" x:Name="rbBanquete" Checked="rbBanquete_Checked" IsEnabled="False"/>
+                        <RadioButton Content="Jornada" x:Name="rbJornada" Checked="rbJornada_Checked" IsEnabled="False"/>
+                        <RadioButton Content="Congreso" x:Name="Congreso" Checked="Congreso_Checked" IsEnabled="False"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Número de asistentes" Margin="20"/>
+                    <TextBlock Text="Tipo de cocina" Margin="20"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Margin="16" x:Name="numAsistTbx" IsEnabled="False"/>
+                    <StackPanel Orientation="Horizontal" Margin="13">
+                        <ComboBox Width="196" Margin="0,0,25,0" x:Name="cbxCocina" IsEnabled="False" SelectionChanged="cbxCocina_SelectionChanged"/>
+                        <CheckBox Content="¿Vegano?" IsEnabled="False" x:Name="chkbxVeg"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Visibility="Collapsed" x:Name="seccionCongreso">
+                <StackPanel>
+                    <TextBlock Text="Número de jornadas" Margin="20"/>
+                    <TextBlock Text="¿Necesita alojar a los asistentes?" Margin="20"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBox Margin="16" x:Name="tbxJornadas"/>
+                    <StackPanel Orientation="Horizontal" Margin="13">
+                        <RadioButton Content="Sí" x:Name="alojarTrue" Checked="alojarTrue_Checked"/>
+                        <RadioButton Content="No" x:Name="alojarFalse" Checked="alojarFalse_Checked"/>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal">
+                    <TextBlock Text="¿Cúantas habitaciones necesita?" Margin="13" VerticalAlignment="Center"/>
+                    <TextBox Margin="13" Width="216" x:Name="numHab" IsEnabled="False"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
+            <Button Content="Realizar reserva" Margin="15" Width="128" IsEnabled="False"/>
+            <Button Content="Cancelar" Margin="15" Width="128"/>
+        </StackPanel>
+    </RelativePanel>
 </Page>

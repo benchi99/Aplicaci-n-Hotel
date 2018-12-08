@@ -101,6 +101,8 @@
     <Compile Include="bookSaloon.xaml.cs">
       <DependentUpon>bookSaloon.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controladores\GestorReservas.cs" />
+    <Compile Include="Controladores\GestorClientes.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
