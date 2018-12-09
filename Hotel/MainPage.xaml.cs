@@ -53,36 +53,25 @@ namespace Hotel
             marco.Navigate(typeof(AboutPage));
         }
 
-        public static void cambiarEstadoReserva()
+        public void cambiarEstadoReserva()
         {
-
-            string contenido = "";
-            string tag = "";
 
             reservaActiva = !reservaActiva;            
 
             if(reservaActiva)
             {
-                contenido = "Ver información de mi reserva";
-                tag = "&#xE946;";
+                reserva.Content = "Ver información de mi reserva";
+                reserva.Tag = "&#xE946;";
 
 
             } else if (!reservaActiva)
             {
-                contenido = "Reservar";
-                tag = "&#xE8D1;";
+                reserva.Content = "Reservar";
+                reserva.Tag = "&#xE8D1;";
             }
-
-            aplicaCambiosComponentes(contenido, tag);
-
+            
         }
 
-        private void aplicaCambiosComponentes (string contenido, string tag)
-        {
 
-            reserva.Content = contenido;
-            reserva.Tag = tag;
-
-        }
     }
 }

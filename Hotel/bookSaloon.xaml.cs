@@ -114,7 +114,7 @@ namespace Hotel
 
             GestorReservas.addReserva(new Reserva(GestorReservas.getListPersonas()[0], new Salon(fecha, tipoEvento, int.Parse(numAsistTbx.Text), cbxCocina.SelectedItem.ToString(), (bool)chkbxVeg.IsChecked, int.Parse(tbxJornadas.Text), (bool)alojarTrue.IsChecked, int.Parse(numHab.Text))));
 
-            MainPage.cambiarEstadoReserva();
+            GestorReservas.setReservaRealizada(!GestorReservas.getReservaRealizada());
 
             Frame.Navigate(typeof(StartPage));
         }

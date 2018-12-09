@@ -10,6 +10,7 @@ namespace Hotel.Controladores
     class GestorReservas
     {
 
+        static bool reservaRealizada = false;
         static List<Reserva> reservas = new List<Reserva>();
         static List<Persona> personas = new List<Persona>();
 
@@ -43,6 +44,14 @@ namespace Hotel.Controladores
             return reservas.Count;
         }
 
+        public static bool getReservaRealizada()
+        {
+            return reservaRealizada;
+        }
 
+        public static void setReservaRealizada(bool valorNuevo)
+        {
+            reservaRealizada = valorNuevo;
+        }
     }
 }
