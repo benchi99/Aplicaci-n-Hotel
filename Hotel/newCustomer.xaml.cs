@@ -38,6 +38,8 @@ namespace Hotel
             provincias.Add("Málaga");
             provincias.Add("Almería");
             provincias.Add("Jaén");
+
+            GestorReservas.getListPersonas().RemoveAt(0);
             
         }
 
@@ -46,6 +48,15 @@ namespace Hotel
             string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
 
             GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+
+            if (rbSalon.IsChecked == true)
+            {
+                Frame.Navigate(typeof(bookSaloon));
+            }
+            else if (rbHabitacion.IsChecked == true)
+            {
+                Frame.Navigate(typeof(bookRoom));
+            }
 
         }
     }

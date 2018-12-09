@@ -22,33 +22,67 @@ namespace Hotel
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
+        static bool reservaActiva = false;
+
         public MainPage()
         {
             this.InitializeComponent();
             marco.Navigate(typeof(StartPage));
         }
 
-        private void nuevoCliente_Click(object sender, RoutedEventArgs e)
+        private void inicio_Click(object sender, RoutedEventArgs e)
         {
-            marco.Navigate(typeof(newCustomer));
-            SplitView.IsPaneOpen = false;
+            marco.Navigate(typeof(StartPage));
         }
 
-        private void reservaHabitacion_Click(object sender, RoutedEventArgs e)
+        private void reserva_Click(object sender, RoutedEventArgs e)
         {
-            marco.Navigate(typeof(bookRoom));
-            SplitView.IsPaneOpen = false;
+            if (reservaActiva)
+            {
+                marco.Navigate(typeof(DataPage));
+            } else
+            {
+                marco.Navigate(typeof(newCustomer));
+            }
+
         }
 
-        private void reservaSalon_Click(object sender, RoutedEventArgs e)
+        private void AcercaDe_Checked(object sender, RoutedEventArgs e)
         {
-            marco.Navigate(typeof(bookSaloon));
-            SplitView.IsPaneOpen = false;
+            marco.Navigate(typeof(AboutPage));
         }
 
-        private void botonHamburguesa_Click(object sender, RoutedEventArgs e)
+        public static void cambiarEstadoReserva()
         {
-            SplitView.IsPaneOpen = !SplitView.IsPaneOpen;
+
+            string contenido = "";
+            string tag = "";
+
+            reservaActiva = !reservaActiva;            
+
+            if(reservaActiva)
+            {
+                contenido = "Ver información de mi reserva";
+                tag = "&#xE946;";
+
+
+            } else if (!reservaActiva)
+            {
+                contenido = "Reservar";
+                tag = "&#xE8D1;";
+            }
+
+            aplicaCambiosComponentes(contenido, tag);
+
+        }
+
+        private void aplicaCambiosComponentes (string contenido, string tag)
+        {
+
+            reserva.Content = contenido;
+            reserva.Tag = tag;
+
         }
     }
 }

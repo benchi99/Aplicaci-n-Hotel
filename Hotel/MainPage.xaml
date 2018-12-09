@@ -83,41 +83,15 @@
             </Setter>
         </Style>
     </Page.Resources>
-
-    
-    
+ 
     <Grid>
-        <VisualStateManager.VisualStateGroups>
-            <VisualStateGroup>
-                <VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="720"/>
-                    </VisualState.StateTriggers>
-
-                    <VisualState.Setters>
-                        <Setter Target="SplitView.IsPaneOpen" Value="False"/>
-                    </VisualState.Setters>
-                </VisualState>
-                <!--<VisualState>
-                    <VisualState.StateTriggers>
-                        <AdaptiveTrigger MinWindowWidth="3840"/>
-                    </VisualState.StateTriggers>
-
-                    <VisualState.Setters>
-                        <Setter Target="SplitView.IsPaneOpen" Value="True"/>
-                    </VisualState.Setters>
-                </VisualState>-->
-            </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
-
         <SplitView x:Name="SplitView" DisplayMode="CompactInline" IsPaneOpen="True">
             <SplitView.Pane>
-                <StackPanel Background="Gray">
-                    <Button x:Name="botonHamburguesa" FontFamily="Segoe MDL2 Assets" Content="&#xE700;" Width="50" Height="50" Background="Transparent" Click="botonHamburguesa_Click"/>
-                    <RadioButton x:Name="nuevoCliente" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Nuevo cliente" GroupName="Options" Tag="&#xE8FA;" Click="nuevoCliente_Click"/>
-                    <RadioButton x:Name="reservaHabitacion" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Reservar habitación" GroupName="Options" Tag="&#xEA8A;" Click="reservaHabitacion_Click"/>
-                    <RadioButton x:Name="reservaSalon" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Reservar salón" GroupName="Options" Tag="&#xE8D1;" Click="reservaSalon_Click"/>
-                </StackPanel>
+                <RelativePanel Background="{ThemeResource SystemAccentColor}">
+                    <RadioButton x:Name="inicio" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Inicio" GroupName="Options" Tag="&#xEA8A;" Click="inicio_Click" VerticalAlignment="Stretch" Width="320"/>
+                    <RadioButton x:Name="reserva" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Reservar" GroupName="Options" Tag="&#xE8D1;" Click="reserva_Click" RelativePanel.Below="inicio" Width="320"/>
+                    <RadioButton x:Name="AcercaDe" Style="{StaticResource HamburguerRadioButtonStyle}" Content="Acerca de..." GroupName="Options" Tag="&#xF142;" RelativePanel.AlignBottomWithPanel="True" Width="320" HorizontalAlignment="Stretch" Checked="AcercaDe_Checked"/>
+                </RelativePanel>
 
             </SplitView.Pane>
 

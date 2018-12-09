@@ -9,7 +9,7 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
     <RelativePanel>
-        <TextBlock x:Name="titulo" Text="Bienvenido al sistema de reservas del Hotel Habana" FontSize="36" Margin="15" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-        <TextBlock Text="Por favor seleccione una de las opciones del panel lateral para comenzar." FontSize="18" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="titulo"/>
+        <TextBlock x:Name="titulo" Text="Bienvenido a la aplicación de reservas del Hotel SCTown" FontSize="36" Margin="15" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        <TextBlock Text="Seleccione Reservar en el menú lateral para comenzar." FontSize="18" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="titulo"/>
     </RelativePanel>
 </Page>

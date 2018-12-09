@@ -1,4 +1,5 @@
 ﻿using Hotel.Controladores;
+using Hotel.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,6 @@ namespace Hotel
     public sealed partial class bookSaloon : Page
     {
 
-        List<string> listaClientes = new List<string>();
         List<string> cocinaList = new List<string>();
 
         public bookSaloon()
@@ -36,14 +36,9 @@ namespace Hotel
             cocinaList.Add("Pedir cita con chef");
             cocinaList.Add("Sin especificar");
 
-            listaClientes.Add("Añadir un nuevo cliente...");
-            for (int i = 0; i < GestorReservas.amountOfPersonas(); i++)
-            {
-                listaClientes.Add(GestorReservas.getListPersonas()[i].nombre);
-            }
-
-            clientes.ItemsSource = listaClientes;
             cbxCocina.ItemsSource = cocinaList;
+
+            GestorReservas.getListReservas().RemoveAt(0);
         }
 
         private void Congreso_Checked(object sender, RoutedEventArgs e)
@@ -76,28 +71,6 @@ namespace Hotel
 
         }
 
-        private void clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-            string seleccion = clientes.SelectedItem.ToString();
-
-            if (seleccion == "Añadir un nuevo cliente...")
-            {
-                Frame.Navigate(typeof(newCustomer));
-            }
-            else
-            {
-                eventoFecha.IsEnabled = true;
-                rbBanquete.IsEnabled = true;
-                rbJornada.IsEnabled = true;
-                Congreso.IsEnabled = true;
-                numAsistTbx.IsEnabled = true;
-                cbxCocina.IsEnabled = true;
-                btReservar.IsEnabled = true;
-            }
-
-        }
-
         private void alojarTrue_Checked(object sender, RoutedEventArgs e)
         {
             numHab.IsEnabled = true;
@@ -106,6 +79,44 @@ namespace Hotel
         private void alojarFalse_Checked(object sender, RoutedEventArgs e)
         {
             numHab.IsEnabled = false;
+        }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(StartPage));
+        }
+
+        private void btReservar_Click(object sender, RoutedEventArgs e)
+        {
+
+            string tipoEvento = "";
+
+            if (rbBanquete.IsChecked == true)
+            {
+                tipoEvento = "Banquete";
+            }
+            else if (rbJornada.IsChecked == true)
+            {
+                tipoEvento = "Jornada";
+            }
+            else if (Congreso.IsChecked == true)
+            {
+                tipoEvento = "Congreso";
+            }
+
+            DateTime? date;
+            var fecha = "";
+            if (eventoFecha.Date != null)
+            {
+                date = eventoFecha.Date.DateTime;
+                fecha = date.Value.ToString("dd-MM-yyyy");
+            }
+
+            GestorReservas.addReserva(new Reserva(GestorReservas.getListPersonas()[0], new Salon(fecha, tipoEvento, int.Parse(numAsistTbx.Text), cbxCocina.SelectedItem.ToString(), (bool)chkbxVeg.IsChecked, int.Parse(tbxJornadas.Text), (bool)alojarTrue.IsChecked, int.Parse(numHab.Text))));
+
+            MainPage.cambiarEstadoReserva();
+
+            Frame.Navigate(typeof(StartPage));
         }
     }
 }

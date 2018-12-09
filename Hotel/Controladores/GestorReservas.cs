@@ -28,6 +28,20 @@ namespace Hotel.Controladores
             return personas.Count;
         }
 
+        public static void addReserva(Reserva reserva)
+        {
+            reservas.Add(reserva);
+        }
+
+        public static List<Reserva> getListReservas()
+        {
+            return reservas;
+        }
+
+        public static int amountOfReservas()
+        {
+            return reservas.Count;
+        }
 
 
     }

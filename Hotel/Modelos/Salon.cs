@@ -9,7 +9,7 @@ namespace Hotel.Modelos
     class Salon
     {
 
-        public Salon(DateTime valorFechaEvento, string valorTipoEvento, int valorNumeroAsistentes, string valorTipoCocina, bool valorVeganoONo, int valorNumJornadas, bool valorAlojarONo, int valorNumAlojar)
+        public Salon(string valorFechaEvento, string valorTipoEvento, int valorNumeroAsistentes, string valorTipoCocina, bool valorVeganoONo, int valorNumJornadas, bool valorAlojarONo, int valorNumAlojar)
         {
 
             fechaEvento = valorFechaEvento;
@@ -31,7 +31,7 @@ namespace Hotel.Modelos
             }            
         }
 
-        private DateTime fechaEvento { get; set; }
+        private string fechaEvento { get; set; }
         private string tipoEvento { get; set; }
         private int numeroAsistentes { get; set; }
         private string tipoCocina { get; set; }

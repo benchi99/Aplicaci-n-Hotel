@@ -25,7 +25,6 @@ namespace Hotel
     {
         List<string> habitaciones = new List<string>();
         List<string> regimenes = new List<string>();
-        List<string> listaClientes = new List<string>();
 
         public bookRoom()
         {
@@ -40,28 +39,11 @@ namespace Hotel
             regimenes.Add("Media pensión");
             regimenes.Add("Pensión completa");
 
-            listaClientes.Add("Añadir un nuevo cliente...");
-            for (int i = 0; i < GestorReservas.amountOfPersonas(); i++)
-            {
-                listaClientes.Add(GestorReservas.getListPersonas()[i].nombre);
-            }
         }
 
-        private void clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cancelarBT_Click(object sender, RoutedEventArgs e)
         {
-            string seleccion = clientes.SelectedItem.ToString();
-
-            if (seleccion == "Añadir un nuevo cliente...")
-            {
-                Frame.Navigate(typeof(newCustomer));
-            } else
-            {
-                fechaLlegada.IsEnabled = true;
-                fechaSalida.IsEnabled = true;
-                numPersonas.IsEnabled = true;
-                tipoHabitacion.IsEnabled = true;
-                reservarBT.IsEnabled = true;
-            }
+            Frame.Navigate(typeof(StartPage));
         }
     }
 }

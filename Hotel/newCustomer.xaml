@@ -10,9 +10,9 @@
 
     <RelativePanel>
         <TextBlock x:Name="TituloNuevoCliente" Text="Nuevo cliente" FontSize="48" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15"/>
-        <TextBlock Text="Introduzca aquí sus datos personales para poder realizar reservas en el Hotel Habana." RelativePanel.Below="TituloNuevoCliente" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="descrip" FontSize="24" Margin="0, 0, 0, 15"/>
-        
-        <StackPanel RelativePanel.Below="descrip" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch">
+        <TextBlock Text="Antes de comenzar, introduzca sus datos personales." RelativePanel.Below="TituloNuevoCliente" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="descrip" FontSize="24" Margin="0, 0, 0, 15"/>
+
+        <StackPanel  RelativePanel.Below="descrip" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Stretch" x:Name="uno">
             <StackPanel>
                 <TextBlock Text="DNI" Margin="12"/>
                 <TextBlock Text="Nombre del cliente" Margin="10"/>
@@ -38,8 +38,19 @@
                 <ComboBox x:Name="provinciaCBX" Margin="5" HorizontalAlignment="Stretch" ItemsSource="{x:Bind provincias}"/>
             </StackPanel>
         </StackPanel>
+
+        <StackPanel x:Name="dos" Orientation="Horizontal" RelativePanel.Below="uno" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="10">
+            <StackPanel>
+                <TextBlock Text="Tipo de reserva: " Margin="12"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" Margin="5">
+                <RadioButton Content="Habitación" x:Name="rbHabitacion"/>
+                <RadioButton Content="Salón Habana" x:Name="rbSalon"/>
+            </StackPanel>
+        </StackPanel>
+        
         <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
-            <Button Content="Añadir" x:Name="btAnadir" Margin="10" Width="96" Click="btAnadir_Click"/>
+            <Button Content="Continuar" x:Name="btAnadir" Margin="10" Width="96" Click="btAnadir_Click"/>
             <Button Content="Cancelar" x:Name="btCancelar" Margin="10" Width="96"/>
         </StackPanel>
     </RelativePanel>

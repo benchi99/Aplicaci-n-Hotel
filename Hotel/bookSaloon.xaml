@@ -14,20 +14,16 @@
 
         <StackPanel RelativePanel.Below="subtitulo" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True">
             <StackPanel Orientation="Horizontal">
-                <TextBlock Text="Seleccione cliente:" Margin="20"/>
-                <ComboBox x:Name="clientes" Margin="15" HorizontalAlignment="Stretch" Width="898" SelectionChanged="clientes_SelectionChanged"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
                 <StackPanel>
                     <TextBlock Text="Fecha del evento" Margin="20"/>
                     <TextBlock Text="Tipo de evento" Margin="20"/>
                 </StackPanel>
                 <StackPanel>
-                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Margin="16" x:Name="eventoFecha" IsEnabled="False"/>
+                    <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Margin="16" x:Name="eventoFecha"/>
                     <StackPanel Orientation="Horizontal" Margin="13">
-                        <RadioButton Content="Banquete" x:Name="rbBanquete" Checked="rbBanquete_Checked" IsEnabled="False"/>
-                        <RadioButton Content="Jornada" x:Name="rbJornada" Checked="rbJornada_Checked" IsEnabled="False"/>
-                        <RadioButton Content="Congreso" x:Name="Congreso" Checked="Congreso_Checked" IsEnabled="False"/>
+                        <RadioButton Content="Banquete" x:Name="rbBanquete" Checked="rbBanquete_Checked"/>
+                        <RadioButton Content="Jornada" x:Name="rbJornada" Checked="rbJornada_Checked"/>
+                        <RadioButton Content="Congreso" x:Name="Congreso" Checked="Congreso_Checked"/>
                     </StackPanel>
                 </StackPanel>
                 <StackPanel>
@@ -35,9 +31,9 @@
                     <TextBlock Text="Tipo de cocina" Margin="20"/>
                 </StackPanel>
                 <StackPanel>
-                    <TextBox Margin="16" x:Name="numAsistTbx" IsEnabled="False"/>
+                    <TextBox Margin="16" x:Name="numAsistTbx"/>
                     <StackPanel Orientation="Horizontal" Margin="13">
-                        <ComboBox Width="196" Margin="0,0,25,0" x:Name="cbxCocina" IsEnabled="False" SelectionChanged="cbxCocina_SelectionChanged"/>
+                        <ComboBox Width="196" Margin="0,0,25,0" x:Name="cbxCocina" SelectionChanged="cbxCocina_SelectionChanged"/>
                         <CheckBox Content="¿Vegano?" IsEnabled="False" x:Name="chkbxVeg"/>
                     </StackPanel>
                 </StackPanel>
@@ -61,8 +57,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
-            <Button Content="Realizar reserva" Margin="15" Width="128" IsEnabled="False" x:Name="btReservar"/>
-            <Button Content="Cancelar" Margin="15" Width="128" x:Name="btCancelar"/>
+            <Button Content="Realizar reserva" Margin="15,15,15,0" Width="128" x:Name="btReservar" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btReservar_Click"/>
+            <Button Content="Cancelar" Margin="15" Width="128" x:Name="btCancelar" Click="btCancelar_Click"/>
         </StackPanel>
     </RelativePanel>
 </Page>
