@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Controladores;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -36,6 +37,10 @@ namespace Hotel
             cocinaList.Add("Sin especificar");
 
             listaClientes.Add("Añadir un nuevo cliente...");
+            for (int i = 0; i < GestorReservas.amountOfPersonas(); i++)
+            {
+                listaClientes.Add(GestorReservas.getListPersonas()[i].nombre);
+            }
 
             clientes.ItemsSource = listaClientes;
             cbxCocina.ItemsSource = cocinaList;
@@ -82,7 +87,13 @@ namespace Hotel
             }
             else
             {
-
+                eventoFecha.IsEnabled = true;
+                rbBanquete.IsEnabled = true;
+                rbJornada.IsEnabled = true;
+                Congreso.IsEnabled = true;
+                numAsistTbx.IsEnabled = true;
+                cbxCocina.IsEnabled = true;
+                btReservar.IsEnabled = true;
             }
 
         }

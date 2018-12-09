@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Controladores;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -40,6 +41,10 @@ namespace Hotel
             regimenes.Add("Pensión completa");
 
             listaClientes.Add("Añadir un nuevo cliente...");
+            for (int i = 0; i < GestorReservas.amountOfPersonas(); i++)
+            {
+                listaClientes.Add(GestorReservas.getListPersonas()[i].nombre);
+            }
         }
 
         private void clientes_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -55,6 +60,7 @@ namespace Hotel
                 fechaSalida.IsEnabled = true;
                 numPersonas.IsEnabled = true;
                 tipoHabitacion.IsEnabled = true;
+                reservarBT.IsEnabled = true;
             }
         }
     }

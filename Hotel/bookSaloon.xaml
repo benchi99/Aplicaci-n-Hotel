@@ -61,8 +61,8 @@
             </StackPanel>
         </StackPanel>
         <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
-            <Button Content="Realizar reserva" Margin="15" Width="128" IsEnabled="False"/>
-            <Button Content="Cancelar" Margin="15" Width="128"/>
+            <Button Content="Realizar reserva" Margin="15" Width="128" IsEnabled="False" x:Name="btReservar"/>
+            <Button Content="Cancelar" Margin="15" Width="128" x:Name="btCancelar"/>
         </StackPanel>
     </RelativePanel>
 </Page>

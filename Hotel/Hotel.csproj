@@ -102,15 +102,20 @@
       <DependentUpon>bookSaloon.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controladores\GestorReservas.cs" />
-    <Compile Include="Controladores\GestorClientes.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Modelos\Habitacion.cs" />
     <Compile Include="Modelos\Persona.cs" />
+    <Compile Include="Modelos\Reserva.cs" />
+    <Compile Include="Modelos\Salon.cs" />
     <Compile Include="newCustomer.xaml.cs">
       <DependentUpon>newCustomer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StartPage.xaml.cs">
+      <DependentUpon>StartPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -150,6 +155,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="newCustomer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StartPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

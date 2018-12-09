@@ -25,6 +25,7 @@ namespace Hotel
         public MainPage()
         {
             this.InitializeComponent();
+            marco.Navigate(typeof(StartPage));
         }
 
         private void nuevoCliente_Click(object sender, RoutedEventArgs e)

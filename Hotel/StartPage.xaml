@@ -1,0 +1,15 @@
+﻿<Page
+    x:Class="Hotel.StartPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hotel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock x:Name="titulo" Text="Bienvenido al sistema de reservas del Hotel Habana" FontSize="36" Margin="15" RelativePanel.AlignTopWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        <TextBlock Text="Por favor seleccione una de las opciones del panel lateral para comenzar." FontSize="18" Margin="10" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="titulo"/>
+    </RelativePanel>
+</Page>

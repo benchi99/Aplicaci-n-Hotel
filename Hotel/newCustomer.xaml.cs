@@ -1,4 +1,5 @@
-﻿using Hotel.Modelos;
+﻿using Hotel.Controladores;
+using Hotel.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,7 +25,6 @@ namespace Hotel
     public sealed partial class newCustomer : Page
     {
         List<string> provincias = new List<string>();
-        List<Persona> listaPersonas = new List<Persona>();
 
         public newCustomer()
         {
@@ -43,10 +43,10 @@ namespace Hotel
 
         private void btAnadir_Click(object sender, RoutedEventArgs e)
         {
-            string provinciaEscogida = ((ComboBoxItem)provinciaCBX.SelectedItem).Content.ToString();
+            string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
 
-            listaPersonas.Add(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
-            
+            GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+
         }
     }
 }

@@ -10,17 +10,25 @@ namespace Hotel.Controladores
     class GestorReservas
     {
 
-        List<Persona> personas = new List<Persona>();
+        static List<Reserva> reservas = new List<Reserva>();
+        static List<Persona> personas = new List<Persona>();
 
-        public void addPersona(Persona persona)
+        public static void addPersona(Persona persona)
         {
             personas.Add(persona);
         }
         
-        public int amountOfPersonas()
+        public static List<Persona> getListPersonas()
+        {
+            return personas;
+        }
+
+        public static int amountOfPersonas()
         {
             return personas.Count;
         }
+
+
 
     }
 }

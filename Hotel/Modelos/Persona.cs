@@ -19,12 +19,12 @@ namespace Hotel.Modelos
             provincia = valorProvincia;
         }
     
-        private string dni { get; set; }
-        private string nombre { get; set; }
-        private int numeroTlf { get; set; }
-        private string direccion { get; set; }
-        private string localidad { get; set; }
-        private string provincia { get; set; }
+        public string dni { get; set; }
+        public string nombre { get; set; }
+        public int numeroTlf { get; set; }
+        public string direccion { get; set; }
+        public string localidad { get; set; }
+        public string provincia { get; set; }
 
     }
 }
