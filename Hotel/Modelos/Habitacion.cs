@@ -9,7 +9,7 @@ namespace Hotel.Modelos
     class Habitacion
     {
 
-        public Habitacion(DateTime valorFechaLlegada, DateTime valorFechaSalida, int valorNumPersonas, string valorTipoHabitacion)
+        public Habitacion(string valorFechaLlegada, string valorFechaSalida, int valorNumPersonas, string valorTipoHabitacion)
         {
             fechaLlegada = valorFechaLlegada;
             fechaSalida = valorFechaSalida;
@@ -17,10 +17,10 @@ namespace Hotel.Modelos
             tipoHabitacion = valorTipoHabitacion;
         }
 
-        private DateTime fechaLlegada { get; set; }
-        private DateTime fechaSalida { get; set; }
-        private int numPersonas { get; set; }
-        private string tipoHabitacion { get; set; }
+        public string fechaLlegada { get; set; }
+        public string fechaSalida { get; set; }
+        public int numPersonas { get; set; }
+        public string tipoHabitacion { get; set; }
 
     }
 }

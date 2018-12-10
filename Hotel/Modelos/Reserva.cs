@@ -23,9 +23,9 @@ namespace Hotel.Modelos
             habitacion = null;
         }
 
-        private Persona persona { get; set; }
-        private Habitacion habitacion { get; set; }
-        private Salon salon { get; set; }
+        public Persona persona { get; set; }
+        public Habitacion habitacion { get; set; }
+        public Salon salon { get; set; }
         
     }
 }

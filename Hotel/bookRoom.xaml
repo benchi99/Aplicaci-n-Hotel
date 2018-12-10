@@ -33,7 +33,7 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Orientation="Horizontal" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
-            <Button Content="Realizar reserva" Margin="15" Width="128" x:Name="reservarBT"/>
+            <Button Content="Realizar reserva" Margin="15" Width="128" x:Name="reservarBT" Click="reservarBT_Click"/>
             <Button Content="Cancelar" Margin="15" Width="128" x:Name="cancelarBT" Click="cancelarBT_Click"/>
         </StackPanel>
     </RelativePanel>

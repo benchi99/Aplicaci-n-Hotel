@@ -31,14 +31,14 @@ namespace Hotel.Modelos
             }            
         }
 
-        private string fechaEvento { get; set; }
-        private string tipoEvento { get; set; }
-        private int numeroAsistentes { get; set; }
-        private string tipoCocina { get; set; }
-        private bool veganoONo { get; set; }
-        private int numJornadas { get; set; }
-        private bool alojarONo { get; set; }
-        private int numAlojar { get; set; }
+        public string fechaEvento { get; set; }
+        public string tipoEvento { get; set; }
+        public int numeroAsistentes { get; set; }
+        public string tipoCocina { get; set; }
+        public bool veganoONo { get; set; }
+        public int numJornadas { get; set; }
+        public bool alojarONo { get; set; }
+        public int numAlojar { get; set; }
 
     }
 }

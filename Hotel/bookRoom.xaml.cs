@@ -1,4 +1,5 @@
 ﻿using Hotel.Controladores;
+using Hotel.Modelos;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -39,11 +40,40 @@ namespace Hotel
             regimenes.Add("Media pensión");
             regimenes.Add("Pensión completa");
 
+            if (GestorReservas.amountOfReservas() > 0)
+            {
+                GestorReservas.getListReservas().RemoveAt(0);
+            }
         }
 
         private void cancelarBT_Click(object sender, RoutedEventArgs e)
         {
             Frame.Navigate(typeof(StartPage));
+        }
+
+        private void reservarBT_Click(object sender, RoutedEventArgs e)
+        {
+            DateTime? fechaLlegadaDT;
+            var fechaLlegadaST = "";
+            if (fechaLlegada.Date != null)
+            {
+                fechaLlegadaDT = fechaLlegada.Date.DateTime;
+                fechaLlegadaST = fechaLlegadaDT.Value.ToString("dd-MM-yyyy");
+            }
+
+            DateTime? fechaSalidaDT;
+            var fechaSalidaST = "";
+            if (fechaSalida.Date != null)
+            {
+                fechaSalidaDT = fechaSalida.Date.DateTime;
+                fechaSalidaST = fechaSalidaDT.Value.ToString("dd-MM-yyyy");
+            }
+            GestorReservas.addReserva(new Reserva(GestorReservas.getListPersonas()[0], new Habitacion(fechaLlegadaST, fechaSalidaST, int.Parse(numPersonas.Text), tipoHabitacion.SelectedItem.ToString())));
+
+            GestorReservas.setReservaRealizada(!GestorReservas.getReservaRealizada());
+
+            Frame.Navigate(typeof(DataPage));
+            
         }
     }
 }

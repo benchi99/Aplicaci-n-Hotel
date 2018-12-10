@@ -39,8 +39,10 @@ namespace Hotel
             provincias.Add("Almería");
             provincias.Add("Jaén");
 
-            GestorReservas.getListPersonas().RemoveAt(0);
-            
+            if (GestorReservas.amountOfPersonas() > 0)
+            {
+                GestorReservas.getListPersonas().RemoveAt(0);
+            } 
         }
 
         private void btAnadir_Click(object sender, RoutedEventArgs e)

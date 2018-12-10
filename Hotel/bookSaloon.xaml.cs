@@ -38,7 +38,10 @@ namespace Hotel
 
             cbxCocina.ItemsSource = cocinaList;
 
-            GestorReservas.getListReservas().RemoveAt(0);
+            if (GestorReservas.amountOfReservas() > 0)
+            {
+                GestorReservas.getListReservas().RemoveAt(0);
+            }
         }
 
         private void Congreso_Checked(object sender, RoutedEventArgs e)

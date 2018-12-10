@@ -11,7 +11,27 @@
     <RelativePanel>
         <TextBlock x:Name="titulo" Text="¡Tu reserva ha sido realizada correctamente!" FontSize="36" Margin="15" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
         <TextBlock x:Name="subtitulo" Text="¡Gracias por reservar! Aquí tiene la información sobre su reserva." FontSize="18" RelativePanel.Below="titulo" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
-        <StackPanel x:Name="habitacionInfo" RelativePanel.Below="subtitulo" Orientation="Horizontal" Margin="15">
+        <StackPanel x:Name="infoCliente" RelativePanel.Below="subtitulo" Orientation="Horizontal" Margin="15">
+            <StackPanel>
+                <TextBlock Text="Información del cliente" FontSize="18" Margin="10"/>
+                <TextBlock Text="DNI: " Margin="10"/>
+                <TextBlock Text="Nombre: " Margin="10"/>
+                <TextBlock Text="Numero de teléfono: " Margin="10"/>
+                <TextBlock Text="Dirección: " Margin="10"/>
+                <TextBlock Text="Localidad: " Margin="10"/>
+                <TextBlock Text="Provincia: " Margin="10"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Margin="10"/>
+                <TextBlock x:Name="dniUs" Margin="10"/>
+                <TextBlock x:Name="nombreUs" Margin="10"/>
+                <TextBlock x:Name="tlfUs" Margin="10"/>
+                <TextBlock x:Name="direccionUs" Margin="10"/>
+                <TextBlock x:Name="localidadUs" Margin="10"/>
+                <TextBlock x:Name="provinciaUs" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="habitacionInfo" RelativePanel.Below="infoCliente" Orientation="Horizontal" Margin="15">
             <StackPanel>
                 <TextBlock Text="Tipo de reserva: " Margin="10"/>
                 <TextBlock Text="Fecha de llegada: " Margin="10"/>
@@ -24,20 +44,20 @@
                 <TextBlock x:Name="fechaLlegada" Text="" Margin="10"/>
                 <TextBlock x:Name="fechaSalida" Text="" Margin="10"/>
                 <TextBlock x:Name="numPersonas" Text="" Margin="10"/>
-                <TextBlock x:Name="tipoHab" Text=" " Margin="10"/>
+                <TextBlock x:Name="tipoHab" Text="" Margin="10"/>
             </StackPanel>
         </StackPanel>
-        <StackPanel x:Name="salonInfo" RelativePanel.Below="subtitulo" Orientation="Horizontal" Margin="15">
+        <StackPanel x:Name="salonInfo" RelativePanel.Below="infoCliente" Orientation="Horizontal" Margin="15">
             <StackPanel>
                 <TextBlock Text="Tipo de reserva: " Margin="10"/>
                 <TextBlock Text="Fecha del evento: " Margin="10"/>
                 <TextBlock Text="Tipo de evento: " Margin="10"/>
                 <TextBlock Text="Numero de asistentes: " Margin="10"/>
                 <TextBlock Text="Tipo de cocina: " Margin="10"/>
-                <TextBlock Text="¿Vegano?" Margin="10" x:Name="vegTit"/>
-                <TextBlock Text="Numero de jornadas: " Margin="10" x:Name="jornadNumTit"/>
-                <TextBlock Text="¿Se alojan los asistentes?" Margin="10" x:Name="numAsistAlojSNTit"/>
-                <TextBlock Text="Numero de asistentes que se alojan: " Margin="10" x:Name="numAsistAlojTit"/>
+                <TextBlock Text="¿Vegano?" Margin="10" x:Name="vegTit" Visibility="Collapsed"/>
+                <TextBlock Text="Numero de jornadas: " Margin="10" x:Name="jornadNumTit" Visibility="Collapsed"/>
+                <TextBlock Text="¿Se alojan los asistentes?" Margin="10" x:Name="numAsistAlojSNTit" Visibility="Collapsed"/>
+                <TextBlock Text="Numero de asistentes que se alojan: " Margin="10" x:Name="numAsistAlojTit" Visibility="Collapsed"/>
             </StackPanel>
             <StackPanel>
                 <TextBlock Text="Salón Habana" Margin="10"/>
@@ -45,11 +65,15 @@
                 <TextBlock x:Name="tipoEvento" Margin="10"/>
                 <TextBlock x:Name="numeroAsist" Margin="10"/>
                 <TextBlock x:Name="tipoCocina" Margin="10"/>
-                <TextBlock x:Name="vegano" Margin="10"/>
-                <TextBlock x:Name="numJornadas" Margin="10"/>
-                <TextBlock x:Name="numAsistAlojSN" Margin="10"/>
-                <TextBlock x:Name="numAsistAloj" Margin="10"/>
+                <TextBlock x:Name="vegano" Margin="10" Visibility="Collapsed"/>
+                <TextBlock x:Name="numJornadas" Margin="10" Visibility="Collapsed"/>
+                <TextBlock x:Name="numAsistAlojSN" Margin="10" Visibility="Collapsed"/>
+                <TextBlock x:Name="numAsistAloj" Margin="10" Visibility="Collapsed"/>
             </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.AlignBottomWithPanel="True">
+            <Button x:Name="volverInicio" Content="Volver al inicio" Margin="10" Click="volverInicio_Click"/>
+            <Button x:Name="cancelarReserva"  Content="Cancelar reserva" Margin="10" Click="cancelarReserva_Click"/>
         </StackPanel>
     </RelativePanel>
 </Page>
