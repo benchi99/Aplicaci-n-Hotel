@@ -25,6 +25,7 @@ namespace Hotel
     public sealed partial class newCustomer : Page
     {
         List<string> provincias = new List<string>();
+        List<string> errores;
 
         public newCustomer()
         {
@@ -48,27 +49,68 @@ namespace Hotel
         private void btAnadir_Click(object sender, RoutedEventArgs e)
         {
 
+            errores = new List<string>();
+
+            bool erroneo = false;
+
             if (provinciaCBX.SelectedItem.ToString() != null)
             {
                 string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
 
             } else
             {
-
+                errores.Add("Seleccione una provincia.");
+                erroneo = true;
             }
 
-
-            GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
-
-            if (rbSalon.IsChecked == true)
+            if (dniTbx.Text == null)
             {
-                Frame.Navigate(typeof(bookSaloon));
-            }
-            else if (rbHabitacion.IsChecked == true)
-            {
-                Frame.Navigate(typeof(bookRoom));
+                errores.Add("Cumplimente el campo DNI.");
+                erroneo = true;
             }
 
+            if (nombreTbx.Text == null)
+            {
+                erroneo = true;
+                errores.Add("Cumplimente el campo Nombre del cliente");
+            }
+
+            if (tlfTbx.Text == null)
+            {
+                erroneo = true;
+                errores.Add("Cumplimente el campo Número de teléfono");
+            }
+
+            if (direccionTbx.Text == null)
+            {
+                erroneo = true;
+                errores.Add("Cumplimente el campo de Dirección");
+            }
+
+            if (localidadTbx.Text == null)
+            {
+                erroneo = true;
+                errores.Add("Cumplimente el campo de Localidad");
+            }
+
+
+            if (!erroneo)
+            {
+                GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+
+                if (rbSalon.IsChecked == true)
+                {
+                    Frame.Navigate(typeof(bookSaloon));
+                }
+                else if (rbHabitacion.IsChecked == true)
+                {
+                    Frame.Navigate(typeof(bookRoom));
+                }
+            }
+            else
+            {
+
+            }
         }
     }
 }
