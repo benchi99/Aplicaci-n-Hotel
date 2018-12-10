@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Text;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -25,7 +26,8 @@ namespace Hotel
     public sealed partial class newCustomer : Page
     {
         List<string> provincias = new List<string>();
-        List<string> errores;
+        //List<string> errores;
+        private string provinciaEscogida;
 
         public newCustomer()
         {
@@ -43,26 +45,16 @@ namespace Hotel
             if (GestorReservas.amountOfPersonas() > 0)
             {
                 GestorReservas.getListPersonas().RemoveAt(0);
-            } 
+            }
         }
 
         private void btAnadir_Click(object sender, RoutedEventArgs e)
         {
-
+            /*
             errores = new List<string>();
 
             bool erroneo = false;
-
-            if (provinciaCBX.SelectedItem.ToString() != null)
-            {
-                string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
-
-            } else
-            {
-                errores.Add("Seleccione una provincia.");
-                erroneo = true;
-            }
-
+            
             if (dniTbx.Text == null)
             {
                 errores.Add("Cumplimente el campo DNI.");
@@ -80,6 +72,11 @@ namespace Hotel
                 erroneo = true;
                 errores.Add("Cumplimente el campo Número de teléfono");
             }
+            else if (!tlfTbx.Text.All(char.IsDigit))
+            {
+                erroneo = true;
+                errores.Add("Introduzca SOLO números en el campo Número de teléfono");
+            }
 
             if (direccionTbx.Text == null)
             {
@@ -93,24 +90,62 @@ namespace Hotel
                 errores.Add("Cumplimente el campo de Localidad");
             }
 
-
-            if (!erroneo)
+            if (provinciaCBX.SelectedItem != null)
             {
-                GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
-
-                if (rbSalon.IsChecked == true)
-                {
-                    Frame.Navigate(typeof(bookSaloon));
-                }
-                else if (rbHabitacion.IsChecked == true)
-                {
-                    Frame.Navigate(typeof(bookRoom));
-                }
+                provinciaEscogida = provinciaCBX.SelectedItem.ToString();
             }
             else
             {
-
+                errores.Add("Seleccione una provincia.");
+                erroneo = true;
             }
+            
+            if (!erroneo)
+            {
+            */
+
+            provinciaEscogida = provinciaCBX.SelectedItem.ToString();
+
+            GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
+
+            if (rbSalon.IsChecked == true)
+            {
+                Frame.Navigate(typeof(bookSaloon));
+            }
+            else if (rbHabitacion.IsChecked == true)
+            {
+                Frame.Navigate(typeof(bookRoom));
+            }
+            /*
+        }
+        else
+        {
+            MostrarErrores();
+            errores.Clear();
+        }
+    }
+
+    private async void MostrarErrores()
+    {
+
+        StringBuilder construyeError = new StringBuilder("Se han encontrado errores. ");
+
+        for (int i = 0; i < errores.Count; i++)
+        {
+            construyeError.Append("\n" + errores[i]);
+        }
+
+        ContentDialog error = new ContentDialog()
+        {
+            Title = "Error",
+            Content = construyeError,
+            PrimaryButtonText = "Aceptar"
+        };
+
+        error.Margin = new Thickness(0, 0, 0, 0);
+        await error.ShowAsync();
+    }
+    */
         }
     }
 }

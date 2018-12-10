@@ -26,6 +26,7 @@ namespace Hotel
     {
 
         List<string> cocinaList = new List<string>();
+        private string tipoEvento;
 
         public bookSaloon()
         {
@@ -91,9 +92,7 @@ namespace Hotel
 
         private void btReservar_Click(object sender, RoutedEventArgs e)
         {
-
-            string tipoEvento = "";
-
+            
             if (rbBanquete.IsChecked == true)
             {
                 tipoEvento = "Banquete";

@@ -1,0 +1,44 @@
+﻿<Page
+    x:Class="Hotel.bookRoom"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hotel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Text="Reservar Habitación" FontSize="36" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15" x:Name="tituloHab" TextWrapping="Wrap"/>
+        <TextBlock Text="Introduzca aquí los datos de su reserva." FontSize="18" RelativePanel.Below="tituloHab" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="15" x:Name="subtituloHab"/>
+
+        <StackPanel RelativePanel.Below="subtituloHab" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <StackPanel Orientation="Vertical">
+                <StackPanel>
+                    <TextBlock Text="Fecha de llegada" Margin="15"/>
+                    <DatePicker x:Name="fechaLlegada" Margin="10" />
+                    
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Fecha de Salida" Margin="15"/>
+                    <DatePicker x:Name="fechaSalida" Margin="10"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Vertical" Width="Auto">
+                <StackPanel>
+                    <TextBlock Text="Número de personas" Margin="15"/>
+                    <TextBox x:Name="numPersonas" Margin="10"/>
+                </StackPanel>
+                <StackPanel>
+                    <TextBlock Text="Tipo de habitación" Margin="15"/>
+                    <ComboBox x:Name="tipoHabitacion" Margin="10" ItemsSource="{x:Bind habitaciones}" Width="306"/>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True">
+            <Button Content="Realizar reserva" Margin="15" Width="128" x:Name="reservarBT" Click="reservarBT_Click"/>
+            <Button Content="Cancelar" Margin="15" Width="128" x:Name="cancelarBT" Click="cancelarBT_Click"/>
+        </StackPanel>
+    </RelativePanel>
+
+</Page>

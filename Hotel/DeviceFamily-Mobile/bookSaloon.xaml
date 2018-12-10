@@ -1,0 +1,67 @@
+﻿<Page
+    x:Class="Hotel.bookSaloon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hotel"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <RelativePanel>
+        <TextBlock Text="Reservar salón" FontSize="48" Margin="15" RelativePanel.AlignHorizontalCenterWithPanel="True" x:Name="titulo"/>
+        <TextBlock Text="Introduzca los datos de su reserva de salón" FontSize="24" Margin="5" RelativePanel.AlignHorizontalCenterWithPanel="True" RelativePanel.Below="titulo" x:Name="subtitulo" TextWrapping="Wrap"/>
+
+        <ScrollViewer RelativePanel.Below="subtitulo" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="0, 0, 0, 60">
+            <StackPanel Margin="10">
+                <StackPanel Orientation="Vertical">
+                    <StackPanel>
+                        <TextBlock Text="Fecha del evento" Margin="5"/>
+                        <DatePicker HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5" x:Name="eventoFecha"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Tipo de evento" Margin="5"/>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <RadioButton Content="Banquete" x:Name="rbBanquete" Checked="rbBanquete_Checked"/>
+                            <RadioButton Content="Jornada" x:Name="rbJornada" Checked="rbJornada_Checked"/>
+                            <RadioButton Content="Congreso" x:Name="Congreso" Checked="Congreso_Checked"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Número de asistentes" Margin="5"/>
+                        <TextBox Margin="5" x:Name="numAsistTbx"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="Tipo de cocina" Margin="5"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <ComboBox Width="196" Margin="0,0,25,0" x:Name="cbxCocina" SelectionChanged="cbxCocina_SelectionChanged"/>
+                            <CheckBox Content="¿Vegano?" IsEnabled="False" x:Name="chkbxVeg"/>
+                        </StackPanel>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Visibility="Collapsed" x:Name="seccionCongreso">
+                    <StackPanel>
+                        <TextBlock Text="Número de jornadas" Margin="5"/>
+                        <TextBox Margin="5" x:Name="tbxJornadas"/>
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="¿Necesita alojar a los asistentes?" Margin="5"/>
+                        <StackPanel Orientation="Horizontal" Margin="5">
+                            <RadioButton Content="Sí" x:Name="alojarTrue" Checked="alojarTrue_Checked"/>
+                            <RadioButton Content="No" x:Name="alojarFalse" Checked="alojarFalse_Checked"/>
+                        </StackPanel>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Bottom" Orientation="Vertical">
+                        <TextBlock Text="¿Cúantas habitaciones necesita?" Margin="13" VerticalAlignment="Center"/>
+                        <TextBox Margin="13" Width="216" x:Name="numHab" IsEnabled="False"/>
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </ScrollViewer>
+        <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
+            <Button Content="Realizar reserva" Margin="15,15,15,0" Width="128" x:Name="btReservar" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btReservar_Click"/>
+            <Button Content="Cancelar" Margin="15" Width="128" x:Name="btCancelar" Click="btCancelar_Click"/>
+        </StackPanel>
+    </RelativePanel>
+
+</Page>
