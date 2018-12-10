@@ -147,5 +147,10 @@ namespace Hotel
     }
     */
         }
+
+        private void btCancelar_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(StartPage));
+        }
     }
 }

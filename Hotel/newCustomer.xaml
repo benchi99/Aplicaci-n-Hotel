@@ -52,7 +52,7 @@
         
         <StackPanel RelativePanel.AlignBottomWithPanel="True" RelativePanel.AlignHorizontalCenterWithPanel="True" Orientation="Horizontal">
             <Button Content="Continuar" x:Name="btAnadir" Margin="10" Width="96" Click="btAnadir_Click"/>
-            <Button Content="Cancelar" x:Name="btCancelar" Margin="10" Width="96"/>
+            <Button Content="Cancelar" x:Name="btCancelar" Margin="10" Width="96" Click="btCancelar_Click"/>
         </StackPanel>
     </RelativePanel>
 </Page>
