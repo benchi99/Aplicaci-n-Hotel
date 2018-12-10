@@ -47,7 +47,16 @@ namespace Hotel
 
         private void btAnadir_Click(object sender, RoutedEventArgs e)
         {
-            string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
+
+            if (provinciaCBX.SelectedItem.ToString() != null)
+            {
+                string provinciaEscogida = provinciaCBX.SelectedItem.ToString();
+
+            } else
+            {
+
+            }
+
 
             GestorReservas.addPersona(new Persona(dniTbx.Text, nombreTbx.Text, int.Parse(tlfTbx.Text), direccionTbx.Text, localidadTbx.Text, provinciaEscogida));
 

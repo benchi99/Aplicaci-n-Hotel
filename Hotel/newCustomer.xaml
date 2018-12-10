@@ -32,7 +32,7 @@
             
         </StackPanel>
 
-        <StackPanel x:Name="dos" Orientation="Horizontal" RelativePanel.Below="uno" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="10,10,10,10" Padding="0,0,36,0">
+        <StackPanel x:Name="dos" Orientation="Horizontal" RelativePanel.Below="uno" RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="10,10,10,10" Padding="0,0,16,0">
             <StackPanel Width="147">
                 <TextBlock Text="Localidad" Margin="12"/>
                 <TextBlock Text="Provincia" Margin="10"/>
@@ -45,8 +45,8 @@
                 <TextBlock Text="Tipo de reserva: " Margin="12" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal" Margin="5">
-                <RadioButton Content="Habitación" x:Name="rbHabitacion"/>
-                <RadioButton Content="Salón Habana" x:Name="rbSalon"/>
+                <RadioButton Content="Habitación" x:Name="rbHabitacion" Margin="5"/>
+                <RadioButton Content="Salón Habana" x:Name="rbSalon" Margin="5"/>
             </StackPanel>
         </StackPanel>
         
