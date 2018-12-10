@@ -116,7 +116,7 @@ namespace Hotel
 
             GestorReservas.setReservaRealizada(!GestorReservas.getReservaRealizada());
 
-            Frame.Navigate(typeof(StartPage));
+            Frame.Navigate(typeof(DataPage));
         }
     }
 }

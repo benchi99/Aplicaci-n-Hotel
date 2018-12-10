@@ -8,7 +8,48 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Grid>
-
-    </Grid>
+    <RelativePanel>
+        <TextBlock x:Name="titulo" Text="¡Tu reserva ha sido realizada correctamente!" FontSize="36" Margin="15" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        <TextBlock x:Name="subtitulo" Text="¡Gracias por reservar! Aquí tiene la información sobre su reserva." FontSize="18" RelativePanel.Below="titulo" RelativePanel.AlignHorizontalCenterWithPanel="True"/>
+        <StackPanel x:Name="habitacionInfo" RelativePanel.Below="subtitulo" Orientation="Horizontal" Margin="15">
+            <StackPanel>
+                <TextBlock Text="Tipo de reserva: " Margin="10"/>
+                <TextBlock Text="Fecha de llegada: " Margin="10"/>
+                <TextBlock Text="Fecha de salida: " Margin="10"/>
+                <TextBlock Text="Número de personas: " Margin="10"/>
+                <TextBlock Text="Tipo de habitación: " Margin="10"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock x:Name="tipoReserva" Text="Habitación" Margin="10"/>
+                <TextBlock x:Name="fechaLlegada" Text="" Margin="10"/>
+                <TextBlock x:Name="fechaSalida" Text="" Margin="10"/>
+                <TextBlock x:Name="numPersonas" Text="" Margin="10"/>
+                <TextBlock x:Name="tipoHab" Text=" " Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel x:Name="salonInfo" RelativePanel.Below="subtitulo" Orientation="Horizontal" Margin="15">
+            <StackPanel>
+                <TextBlock Text="Tipo de reserva: " Margin="10"/>
+                <TextBlock Text="Fecha del evento: " Margin="10"/>
+                <TextBlock Text="Tipo de evento: " Margin="10"/>
+                <TextBlock Text="Numero de asistentes: " Margin="10"/>
+                <TextBlock Text="Tipo de cocina: " Margin="10"/>
+                <TextBlock Text="¿Vegano?" Margin="10" x:Name="vegTit"/>
+                <TextBlock Text="Numero de jornadas: " Margin="10" x:Name="jornadNumTit"/>
+                <TextBlock Text="¿Se alojan los asistentes?" Margin="10" x:Name="numAsistAlojSNTit"/>
+                <TextBlock Text="Numero de asistentes que se alojan: " Margin="10" x:Name="numAsistAlojTit"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock Text="Salón Habana" Margin="10"/>
+                <TextBlock x:Name="fechEvento" Margin="10"/>
+                <TextBlock x:Name="tipoEvento" Margin="10"/>
+                <TextBlock x:Name="numeroAsist" Margin="10"/>
+                <TextBlock x:Name="tipoCocina" Margin="10"/>
+                <TextBlock x:Name="vegano" Margin="10"/>
+                <TextBlock x:Name="numJornadas" Margin="10"/>
+                <TextBlock x:Name="numAsistAlojSN" Margin="10"/>
+                <TextBlock x:Name="numAsistAloj" Margin="10"/>
+            </StackPanel>
+        </StackPanel>
+    </RelativePanel>
 </Page>

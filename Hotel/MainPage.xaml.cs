@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Hotel.Controladores;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -23,8 +24,6 @@ namespace Hotel
     public sealed partial class MainPage : Page
     {
 
-        static bool reservaActiva = false;
-
         public MainPage()
         {
             this.InitializeComponent();
@@ -38,7 +37,7 @@ namespace Hotel
 
         private void reserva_Click(object sender, RoutedEventArgs e)
         {
-            if (reservaActiva)
+            if (GestorReservas.getReservaRealizada())
             {
                 marco.Navigate(typeof(DataPage));
             } else
@@ -52,26 +51,6 @@ namespace Hotel
         {
             marco.Navigate(typeof(AboutPage));
         }
-
-        public void cambiarEstadoReserva()
-        {
-
-            reservaActiva = !reservaActiva;            
-
-            if(reservaActiva)
-            {
-                reserva.Content = "Ver información de mi reserva";
-                reserva.Tag = "&#xE946;";
-
-
-            } else if (!reservaActiva)
-            {
-                reserva.Content = "Reservar";
-                reserva.Tag = "&#xE8D1;";
-            }
-            
-        }
-
 
     }
 }
